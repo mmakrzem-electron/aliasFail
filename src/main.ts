@@ -1,6 +1,9 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'path';
 
+// eslint-disable-next-line import/no-unresolved
+import { Setup } from '@common';
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -13,6 +16,7 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      // sandbox: false,
     },
   });
 
@@ -25,6 +29,8 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  Setup.printMessage( 'Main' );
 };
 
 // This method will be called when Electron has finished

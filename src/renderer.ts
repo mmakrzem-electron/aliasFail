@@ -28,4 +28,10 @@
 
 import './index.css';
 
+// eslint-disable-next-line import/no-unresolved
+import { Setup } from '@common';
+
 console.log('👋 This message is being logged by "renderer.ts", included via Vite');
+
+Setup.printMessage( 'Renderer' );
+
